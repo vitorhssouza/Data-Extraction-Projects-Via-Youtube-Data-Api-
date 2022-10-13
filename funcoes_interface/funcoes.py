@@ -3,7 +3,7 @@
 from time import sleep
 
 def linha(tamanho=90):
-    print('-'*tamanho)
+    print('='*tamanho)
 
 
 def cabecalho():
@@ -29,6 +29,6 @@ def menu_secundario(opcao):
         exit()
     else:
         print('Opção inválida')
-        sleep(3)
+        sleep(1)
         menu_inicial()
 
