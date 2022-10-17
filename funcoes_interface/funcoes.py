@@ -1,14 +1,16 @@
 # Primeiro menu de interface do programa
 
+from classes import *
+
 from time import sleep
 
 def linha(tamanho=90):
     print('='*tamanho)
 
 
-def cabecalho():
+def cabecalho(texto='Extraindo Dados Da Api Do Youtube'):
     linha()
-    print('Extraindo Dados Da Api Do Youtube')
+    print(texto.center(90))
     linha()
 
 
@@ -24,7 +26,11 @@ def menu_inicial():
 def menu_secundario(opcao):
     cabecalho()
     if opcao == 1:
-        pass
+        url: str = str(input('Inserir o id do video ou a playlist que desaja analisar os dados'))
+        if len(url) >= 15:
+            pass
+        else:
+            pass
     elif opcao == 2:
         exit()
     else:
