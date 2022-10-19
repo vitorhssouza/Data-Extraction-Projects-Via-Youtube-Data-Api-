@@ -2,7 +2,6 @@ from classes.conexao import Conexao
 from chave_api import api_key
 
 youtube = Conexao(api_key)
-nextPage_token = None
 
 
 class Playlist:
@@ -13,13 +12,14 @@ class Playlist:
 
     @property
     def playlist(self):
+        next_page_token = None
         while True:
-            filtro = youtube.conexao.playlistItems().list(part='snippet', playlistId=api_key, maxResults=50,
-                                                          pageToken=nextPage_token).execute()
+            filtro = youtube.conexao.playlistItems().list(part='snippet', playlistId=self.__url_playlist, maxResults=50,
+                                                          pageToken=next_page_token).execute()
             self.__playlist += filtro['items']
-            nextPage_token = filtro.get('nestPageToken')
+            next_page_token = filtro.get('nestPageToken')
 
-            if nextPage_token is None:
+            if next_page_token is None:
                 break
         return self.__playlist
 
