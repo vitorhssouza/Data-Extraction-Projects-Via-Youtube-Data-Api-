@@ -13,5 +13,5 @@ class Conexao:
         return self.__youtube
 
 
-youtube = Conexao(api_key)
+
 
