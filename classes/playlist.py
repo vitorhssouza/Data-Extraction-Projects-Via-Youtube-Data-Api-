@@ -11,6 +11,7 @@ class Playlist:
         self.__playlist = list()
         self.__id_videos = list()
         self.__estatisticas_playlist = list()
+        self.__url_videos = list()
 
     @property
     def playlist(self):
@@ -37,5 +38,12 @@ class Playlist:
             filtro = youtube.conexao.videos().list(part='statistics', id=id_video).execute()
             self.__estatisticas_playlist += filtro['items']
         return self.__estatisticas_playlist
+
+    @property
+    def url_videos(self):
+        for url in self.id_videos:
+            self.__url_videos.append(f'https://www.youtube.com/watch?v={url}&list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6&index=2&t=1511s')
+        return self.__url_videos
+
 
 
