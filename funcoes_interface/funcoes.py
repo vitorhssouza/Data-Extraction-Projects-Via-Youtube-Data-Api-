@@ -1,6 +1,7 @@
 # Primeiro menu de interface do programa
 
-from classes import *
+from classes.videos import Videos
+from classes.playlist import Playlist
 
 from time import sleep
 
@@ -27,10 +28,10 @@ def menu_secundario(opcao):
     cabecalho()
     if opcao == 1:
         url: str = str(input('Inserir o id do video ou a playlist que desaja analisar os dados'))
-        if len(url) >= 15:
-            pass
+        if len(url) > 15:
+            playlist = Playlist()
         else:
-            pass
+            videos = Videos()
     elif opcao == 2:
         exit()
     else:
