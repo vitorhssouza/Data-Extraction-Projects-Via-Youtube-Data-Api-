@@ -27,11 +27,12 @@ def menu_inicial():
 def menu_secundario(opcao):
     cabecalho()
     if opcao == 1:
-        url: str = str(input('Inserir o id do video ou a playlist que desaja analisar os dados'))
+        url: str = str(input('Inserir o id do video ou a playlist que desaja analisar os dados: '))
         if len(url) > 15:
-            playlist = Playlist()
+            playlist = Playlist(url)
+            print(playlist.playlist)
         else:
-            videos = Videos()
+            videos = Videos(url)
     elif opcao == 2:
         exit()
     else:
