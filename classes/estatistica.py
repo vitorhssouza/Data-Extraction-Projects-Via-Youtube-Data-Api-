@@ -16,5 +16,5 @@ class EstatisticaPlaylist(Playlist):
 
     @property
     def titulos_videos(self):
-        self.__titulos_videos = map(lambda x: x['snippet']['title'], self.playlist)
+        self.__titulos_videos = list(map(lambda x: x['snippet']['title'], self.playlist))
         return self.__titulos_videos
