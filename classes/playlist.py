@@ -28,7 +28,6 @@ class Playlist:
 
     @property
     def id_videos(self):
-
         self.__id_videos = list(map(lambda video: video['snippet']['resourceId']['videoId'], self.playlist))
         return self.__id_videos
 
