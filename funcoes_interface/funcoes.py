@@ -1,8 +1,10 @@
 # Primeiro menu de interface do programa
 
 '''from classes.videos import Videos'''
+from Classes.Playlist import Playlist
 
 from time import sleep
+
 
 
 def linha(tamanho=90):
@@ -52,7 +54,9 @@ def menu_secundario(opcao):
 
 def menu_opcao(url, opcao):
     if opcao == 1:
-        pass
+        playlist = Playlist(url)
+        print(playlist.dataframe())
+
     elif opcao == 2:
         pass
     elif opcao == 3:
