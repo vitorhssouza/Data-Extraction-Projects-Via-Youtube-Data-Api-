@@ -2,7 +2,7 @@ import pandas as pd
 from classes.estatistica import EstatisticaPlaylist
 
 
-class EstruturaDataFrame(EstatisticaPlaylist):
+"""class EstruturaDataFrame(EstatisticaPlaylist):
 
     def __init__(self, url_playlist):
         super().__init__(url_playlist)
@@ -21,8 +21,7 @@ class EstruturaDataFrame(EstatisticaPlaylist):
 
     @property
     def dataframe(self):
-        return self.__dataframe['Título']
-
+        return self.__dataframe"""
 
 
 
