@@ -1,9 +1,6 @@
 # Primeiro menu de interface do programa
 
 '''from classes.videos import Videos'''
-from classes.playlist import Playlist
-from classes.estatistica import EstatisticaPlaylist
-# from classes.dataframe import EstruturaDataFrame
 
 from time import sleep
 
@@ -55,11 +52,7 @@ def menu_secundario(opcao):
 
 def menu_opcao(url, opcao):
     if opcao == 1:
-        #print(url)
-
-        dados = Playlist(url)
-        print(dados.dataframe)
-
+        pass
     elif opcao == 2:
         pass
     elif opcao == 3:
