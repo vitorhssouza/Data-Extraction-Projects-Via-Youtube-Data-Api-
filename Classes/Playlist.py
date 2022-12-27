@@ -73,6 +73,7 @@ class Playlist:
 
     def comentarios(self):
         self.__comentarios = list(map(lambda x: int(x['statistics']['commentCount']), self.estatistica()))
+        return self.__comentarios
 
     def dataframe(self):
         self.__dataframe = pd.DataFrame({
@@ -82,7 +83,8 @@ class Playlist:
             'Data Publicação': self.data_publicacao(),
             'Like': self.like(),
             'Visualizações': self.visualizacoes(),
-            #'Comentarios': self.comentarios()
-
+            'Comentarios': self.comentarios(),
+            'URL dos videos': self.link()
         })
+
         return self.__dataframe
