@@ -61,4 +61,20 @@ class Graficos(Playlist):
 
         return plt.show()
 
+    def graph_relacao(self):
+
+        titulos = []
+
+        for c in self.dataframe()['Titulo']:
+            posicao = c.find('-')
+            titulo = c[:posicao - 1]
+            titulos.append(titulo)
+
+        plt.figure(figsize=(20, 10))
+        plt.bar(titulos, self.dataframe()['Visualizações'], color='#b5ffb0', edgecolor='white')
+        plt.bar(titulos, self.dataframe()['Like'])
+
+        plt.xticks(rotation=45, ha='right')
+
+        return plt.show()
 
