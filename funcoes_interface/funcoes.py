@@ -68,7 +68,8 @@ def menu_opcao(url, opcao):
         grafico = Graficos(url)
         grafico.graph_10()
     elif opcao == 5:
-        pass
+        grafico = Graficos(url)
+        grafico.graph_relacao()
     elif opcao == 6:
         pass
     elif opcao == 7:
