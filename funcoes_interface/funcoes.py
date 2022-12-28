@@ -3,7 +3,7 @@
 '''from classes.videos import Videos'''
 from Classes.Playlist import Playlist
 from Classes.Graficos import Graficos
-
+from Classes.Video import Video
 from time import sleep
 
 
@@ -37,14 +37,25 @@ def menu_secundario(opcao):
                   '3 - Total de likes por videos\n'
                   '4 - Top 10 videos com mais visualizações\n'
                   '5 - Relação entre visualizações e likes\n'
-                  '6 - Comentários relevantes\n'
-                  '7 - Visualização preditiva\n'
-                  '8 - Sair do programa')
+                  '6 - Visualização preditiva\n'
+                  '7 - Sair do programa')
             op: int = int(input("Informe sua opção: "))
             menu_opcao(url=url, opcao=op)
         else:
-            """videos = Videos(url)"""
-            pass
+            while True:
+                cabecalho()
+                print('1 - Visualizar gráfico de nuvens de comentarios\n'
+                      '2 - Sair do programa')
+                linha()
+                op: int = int(input('Informe sua opção: '))
+                linha()
+                if op == 1:
+                    video = Video(url)
+                    print(video.graph_nuvem())
+                elif op == 2:
+                    print('Saindo do sistema')
+                    break
+
     elif opcao == 2:
         exit()
     else:
@@ -73,8 +84,6 @@ def menu_opcao(url, opcao):
     elif opcao == 6:
         pass
     elif opcao == 7:
-        pass
-    elif opcao == 8:
         print('Saindo do sistema')
         sleep(3)
         exit()
