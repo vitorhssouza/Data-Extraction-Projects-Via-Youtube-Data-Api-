@@ -42,51 +42,48 @@ class Video:
         for c in self.dataframe()['Comentários']:
             self.__lista.append(c)
 
-            lista = [' ','', 'o', 'que', 'e', 'do', 'da', 'em', 'um', 'para',
-                   'é', 'com', 'não', 'uma', 'os', 'no', 'se','na', 'por', 'mais',
-                   'as', 'dos', 'como', 'mas', 'foi', 'ao', 'ele', 'das', 'tem',
-                   'à', 'seu', 'sua', 'ou', 'ser', 'quando', 'muito', 'há', 'nos',
-                   'já', 'está', 'eu', 'também', 'só', 'pelo', 'pela', 'até', 'isso',
-                   'ela', 'entre', 'era', 'depois', 'sem', 'mesmo', 'aos', 'ter', 'seus',  'quem']
+        lista = [' ','', 'o', 'que', 'e', 'do', 'da', 'em', 'um', 'para',
+               'é', 'com', 'não', 'uma', 'os', 'no', 'se','na', 'por', 'mais',
+               'as', 'dos', 'como', 'mas', 'foi', 'ao', 'ele', 'das', 'tem',
+               'à', 'seu', 'sua', 'ou', 'ser', 'quando', 'muito', 'há', 'nos',
+               'já', 'está', 'eu', 'também', 'só', 'pelo', 'pela', 'até', 'isso',
+               'ela', 'entre', 'era', 'depois', 'sem', 'mesmo', 'aos', 'ter', 'seus',  'quem']
 
-            lista_stop = 'de a o que e do da em um para é com não uma os no se na por mais as dos como mas foi ao ele das tem à seu sua ou ser quando muito há nos já está eu também só pelo pela até isso ela entre depois sem mesmo aos ter seus quem'
+        lista_stop = 'de a o que e do da em um para é com não uma os no se na por mais as dos como mas foi ao ele das tem à seu sua ou ser quando muito há nos já está eu também só pelo pela até isso ela entre depois sem mesmo aos ter seus quem'
 
-            lista2_stopwords = 'nas me esse eles estão você tinha foram essa num nem suas meu às minha têm numa pelos ' \
-                               'elas havia seja qual será nós tenho lhe deles essas esses pelas este fosse dele tu te ' \
-                               'vocês vos lhes meus minhas teu tua teus tuas nosso nossa nossos nossas dela delas esta ' \
-                               'estes estas aquele aquela aqueles aquelas isto aquilo estou está estamos estão estive ' \
-                               'esteve estivemos estiveram estava estávamos estavam estivera estivéramos esteja estejamos ' \
-                               'estejam estivesse estivéssemos estivessem estiver estivermos estiverem hei há havemos ' \
-                               'hão houve houvemos houveram houvera houvéramos haja hajamos hajam houvesse houvéssemos ' \
-                               'houvessem houver houvermos houverem houverei houverá houveremos houverão houveria ' \
-                               'houveríamos houveriam sou somos são era éramos eram fui foi fomos foram fora fôramos ' \
-                               'seja sejamos sejam fosse fôssemos fossem for formos forem serei será seremos serão seria ' \
-                               'seríamos seriam tenho tem temos tém tinha tínhamos tinham tive teve tivemos tiveram tivera ' \
-                               'tivéramos tenha tenhamos tenham tivesse tivéssemos tivessem tiver tivermos tiverem terei ' \
-                               'terá teremos terão teria teríamos teriam '
+        lista2_stopwords = 'nas me esse eles estão você tinha foram essa num nem suas meu às minha têm numa pelos ' \
+                           'elas havia seja qual será nós tenho lhe deles essas esses pelas este fosse dele tu te ' \
+                           'vocês vos lhes meus minhas teu tua teus tuas nosso nossa nossos nossas dela delas esta ' \
+                           'estes estas aquele aquela aqueles aquelas isto aquilo estou está estamos estão estive ' \
+                           'esteve estivemos estiveram estava estávamos estavam estivera estivéramos esteja estejamos ' \
+                           'estejam estivesse estivéssemos estivessem estiver estivermos estiverem hei há havemos ' \
+                           'hão houve houvemos houveram houvera houvéramos haja hajamos hajam houvesse houvéssemos ' \
+                           'houvessem houver houvermos houverem houverei houverá houveremos houverão houveria ' \
+                           'houveríamos houveriam sou somos são era éramos eram fui foi fomos foram fora fôramos ' \
+                           'seja sejamos sejam fosse fôssemos fossem for formos forem serei será seremos serão seria ' \
+                           'seríamos seriam tenho tem temos tém tinha tínhamos tinham tive teve tivemos tiveram tivera ' \
+                           'tivéramos tenha tenhamos tenham tivesse tivéssemos tivessem tiver tivermos tiverem terei ' \
+                           'terá teremos terão teria teríamos teriam '
 
-            self.__stopwords = set(STOPWORDS)
+        self.__stopwords = set(STOPWORDS)
 
-            self.__l = lista_stop + lista2_stopwords
+        self.__l = lista_stop + lista2_stopwords
 
-            self.__l = self.__l.split(' ')
+        self.__l = self.__l.split(' ')
 
-            self.__l = self.__l + lista
+        self.__l = self.__l + lista
 
-            self.__stopwords.update(self.__l)
+        self.__stopwords.update(self.__l)
 
+        self.__nuvens = WordCloud(width=500, height=200, stopwords=self.__stopwords, scale=3, repeat=True,
+                           background_color='white').generate(str(self.__lista))
 
-            #self.__nuvem = WordCloud(width=500, height=200, stopwords=self.__stopwords)
+        plt.figure(figsize=(40, 10),
+                   facecolor='k',
+                   edgecolor='k')
 
-            self.__nuvens = WordCloud(width=500, height=200, stopwords=self.__stopwords, scale=3,
-                               background_color='white').generate(str(self.__lista))
-
-            plt.figure(figsize=(40, 10),
-                             )
-
-            plt.imshow(self.__nuvens, interpolation='bilinear')
-            plt.axis('off')
+        plt.imshow(self.__nuvens, interpolation='bilinear')
+        plt.axis('off')
 
         return plt.show()
-
 
