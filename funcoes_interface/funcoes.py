@@ -51,7 +51,8 @@ def menu_secundario(opcao):
                 linha()
                 if op == 1:
                     video = Video(url)
-                    print(video.graph_nuvem())
+                    video.graph_nuvem()
+
                 elif op == 2:
                     print('Saindo do sistema')
                     break
