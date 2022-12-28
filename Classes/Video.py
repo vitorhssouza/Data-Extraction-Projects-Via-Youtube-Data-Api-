@@ -78,12 +78,11 @@ class Video:
 
             #self.__nuvem = WordCloud(width=500, height=200, stopwords=self.__stopwords)
 
-            self.__nuvens = WordCloud(width=500, height=200, stopwords=self.__stopwords, scale=3, repeat=True,
+            self.__nuvens = WordCloud(width=500, height=200, stopwords=self.__stopwords, scale=3,
                                background_color='white').generate(str(self.__lista))
 
-            fig = plt.figure(figsize=(15, 6),
-                             facecolor='k',
-                             edgecolor='k')
+            plt.figure(figsize=(40, 10),
+                             )
 
             plt.imshow(self.__nuvens, interpolation='bilinear')
             plt.axis('off')
