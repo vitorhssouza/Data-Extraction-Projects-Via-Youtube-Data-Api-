@@ -1,7 +1,8 @@
+from funcoes_interface.funcoes import *
 
 
 def main():
-    pass
+    menu_inicial()
 
 
 if __name__ == '__main__':

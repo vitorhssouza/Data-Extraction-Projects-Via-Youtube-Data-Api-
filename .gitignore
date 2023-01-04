@@ -1,2 +1,5 @@
 /api/
 /.idea
+/chave_api.py
+__pycache__
+
